@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from rt.categorysupport.behaviors.category import ICategory
 from plone.indexer import indexer
+from rt.categorysupport.behaviors.category import ICategory
 
 
 @indexer(ICategory)

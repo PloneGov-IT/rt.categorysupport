@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-from rt.categorysupport import _
-from plone.supermodel import model
-from zope import schema
 from plone.app.registry.browser import controlpanel
+from plone.supermodel import model
+from rt.categorysupport import _
+from zope import schema
 
 
 class ITaxonomySettingsSchema(model.Schema):

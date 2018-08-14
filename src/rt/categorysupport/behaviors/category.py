@@ -5,8 +5,8 @@ from plone.autoform.interfaces import IFormFieldProvider
 from plone.supermodel import model
 from rt.categorysupport import _
 from zope import schema
-from zope.interface import implementer
 from zope.interface import alsoProvides
+from zope.interface import implementer
 
 
 class ICategory(model.Schema):

@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
+from plone import api
 from plone.dexterity.interfaces import IDexterityFTI
 from plone.dexterity.schema import SchemaInvalidatedEvent
 from Products.CMFPlone.interfaces import INonInstallable
+from rt.categorysupport import logger
 from zope.component import getUtility
 from zope.component import queryUtility
 from zope.event import notify
 from zope.interface import implementer
 from zope.schema.interfaces import IVocabularyFactory
-from rt.categorysupport import logger
-from plone import api
 
 
 @implementer(INonInstallable)
