@@ -14,6 +14,7 @@
   <!--<includeDependencies package="." />-->
 
   <include package=".browser" />
+  <include package=".behaviors" />
 
   <include file="permissions.zcml" />
 
@@ -43,5 +44,14 @@
       />
 
   <!-- -*- extra stuff goes here -*- -->
+
+  <!-- vocabulary -->
+  <utility
+    name="rt.categorysupport.category_list"
+    factory=".vocabularies.CategoryList"
+    />
+
+  <!-- field adapter -->
+  <adapter name="taxonomies" factory=".indexer.taxonomies" />
 
 </configure>
