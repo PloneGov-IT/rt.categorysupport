@@ -1,6 +1,3 @@
-# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
-# SOME DESCRIPTIVE TITLE.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -15,11 +12,11 @@ msgstr ""
 "Language-Code: en\n"
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: rt.categorysupport\n"
+"Domain: DOMAIN\n"
 
 #: ./behaviors/configure.zcml:13
 msgid "Adds possibility to add categories to some content"
-msgstr ""
+msgstr "Aggiunge la possibilita di aggiungere tassonomie per i contenuti dexterity"
 
 #: ./configure.zcml:30
 msgid "Installs the rt.categorysupport add-on."
@@ -27,11 +24,11 @@ msgstr ""
 
 #: ./profiles/default/controlpanel.xml
 msgid "Taxonomy Settings"
-msgstr ""
+msgstr "Impostazioni Tassonomie"
 
 #: ./behaviors/configure.zcml:13
 msgid "Taxonomy support behavior"
-msgstr ""
+msgstr "Comportamento supporto tassonomie"
 
 #: ./configure.zcml:39
 msgid "Uninstalls the rt.categorysupport add-on."
@@ -40,7 +37,7 @@ msgstr ""
 #. Default: "Category list"
 #: ./browser/settings.py:10
 msgid "category_list"
-msgstr ""
+msgstr "Lista di tassonomie"
 
 #: ./configure.zcml:30
 msgid "rt.categorysupport"
@@ -53,7 +50,7 @@ msgstr ""
 #. Default: "Taxonomies"
 #: ./behaviors/category.py:16
 msgid "taxonomies"
-msgstr ""
+msgstr "Tassonomie"
 
 #. Default: "Taxonomy Settings"
 #: ./browser/settings.py:20
