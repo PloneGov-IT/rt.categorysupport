@@ -18,7 +18,11 @@ class CategoryList(object):
         )
         terms = []
         for value in values:
-            terms.append(SimpleTerm(value, value, value))
+            terms.append(SimpleTerm(
+                value=value,
+                token=value.encode('utf-8'),
+                title=value)
+            )
         return SimpleVocabulary(terms)
 
 
