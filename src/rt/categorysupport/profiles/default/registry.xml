@@ -4,7 +4,7 @@
 
   <records interface="plone.app.querystring.interfaces.IQueryField"
            prefix="plone.app.querystring.field.taxonomies">
-    <value key="title">Tassonomie</value>
+    <value key="title">Temi</value>
     <value key="enabled">True</value>
     <value key="sortable">False</value>
     <value key="operations">

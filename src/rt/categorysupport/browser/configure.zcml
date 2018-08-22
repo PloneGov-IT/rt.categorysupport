@@ -2,6 +2,7 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
     i18n_domain="rt.categorysupport">
 
   <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
@@ -26,5 +27,45 @@
       class=".settings.TaxonomySettings"
       layer="rt.categorysupport.interfaces.IRtCategorysupportLayer"
       />
+
+  <!-- viewlets -->
+  <browser:viewlet
+      name="plone.belowcontenttitle.keywords"
+      manager="plone.app.layout.viewlets.interfaces.IBelowContent"
+      permission="zope2.View"
+      layer="rt.categorysupport.interfaces.IRtCategorysupportLayer"
+      template="templates/keywords.pt"
+      />
+
+    <!-- view for count taxonomies in folder -->
+    <browser:page
+        for="plone.app.contenttypes.interfaces.IFolder"
+        name="taxonomies-info"
+        permission="zope2.View"
+        class=".view.TaxonomyInfo"
+        layer="rt.categorysupport.interfaces.IRtCategorysupportLayer"
+        template="templates/taxonomy_info.pt"
+        menu="plone_displayviews"
+        title="Taxonomies info view"
+        />
+
+  <!-- custom rer.sitesearch -->
+  <!-- <browser:page
+        name="search"
+        permission="zope2.View"
+        class="rer.sitesearch.browser.rer_search.RERSearch"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        layer="rt.categorysupport.interfaces.IRtCategorysupportLayer"
+        template="templates/rer_search.pt"
+        />
+
+  <browser:page
+        name="search"
+        permission="zope2.View"
+        class="rer.sitesearch.browser.rer_search.RERSearch"
+        for="*"
+        layer="rt.categorysupport.interfaces.IRtCategorysupportLayer"
+        template="templates/rer_search.pt" -->
+        />
 
 </configure>

@@ -12,13 +12,19 @@ from zope.interface import implementer
 class ICategory(model.Schema):
 
     model.fieldset(
-        'taxonomies',
-        label=_(u'taxonomies', default=u'Taxonomies'),
+        'categorization',
+        label=_(u'label_schema_categorization', default=u'Categorization'),
         fields=['taxonomies'],
     )
 
+    directives.order_after(taxonomies='subjects')
+    directives.order_before(taxonomies='language')
     taxonomies = schema.Tuple(
         title=_(u'taxonomies', default=u'Taxonomies'),
+        description=_(
+            u'taxonomies_description',
+            default=u'Un campo aggiuntivo per la gestione di nuove parole chiave.'  # noqa
+        ),
         value_type=schema.TextLine(),
         required=False,
         missing_value=None,

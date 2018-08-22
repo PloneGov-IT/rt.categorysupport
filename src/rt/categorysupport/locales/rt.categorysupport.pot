@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-08-14 15:38+0000\n"
+"POT-Creation-Date: 2018-08-22 15:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,6 +25,10 @@ msgstr ""
 msgid "Installs the rt.categorysupport add-on."
 msgstr ""
 
+#: ./browser/configure.zcml:69
+msgid "Taxonomies info view"
+msgstr ""
+
 #: ./profiles/default/controlpanel.xml
 msgid "Taxonomy Settings"
 msgstr ""
@@ -42,6 +46,11 @@ msgstr ""
 msgid "category_list"
 msgstr ""
 
+#. Default: "Categorization"
+#: ./behaviors/category.py:16
+msgid "label_schema_categorization"
+msgstr ""
+
 #: ./configure.zcml:30
 msgid "rt.categorysupport"
 msgstr ""
@@ -51,8 +60,13 @@ msgid "rt.categorysupport (uninstall)"
 msgstr ""
 
 #. Default: "Taxonomies"
-#: ./behaviors/category.py:16
+#: ./behaviors/category.py:23
 msgid "taxonomies"
+msgstr ""
+
+#. Default: "Un campo aggiuntivo per la gestione di nuove parole chiave."
+#: ./behaviors/category.py:24
+msgid "taxonomies_description"
 msgstr ""
 
 #. Default: "Taxonomy Settings"
