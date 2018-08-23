@@ -17,8 +17,6 @@ class ICategory(model.Schema):
         fields=['taxonomies'],
     )
 
-    directives.order_after(taxonomies='subjects')
-    directives.order_before(taxonomies='language')
     taxonomies = schema.Tuple(
         title=_(u'taxonomies', default=u'Taxonomies'),
         description=_(

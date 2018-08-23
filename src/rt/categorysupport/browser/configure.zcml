@@ -49,23 +49,4 @@
         title="Taxonomies info view"
         />
 
-  <!-- custom rer.sitesearch -->
-  <!-- <browser:page
-        name="search"
-        permission="zope2.View"
-        class="rer.sitesearch.browser.rer_search.RERSearch"
-        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-        layer="rt.categorysupport.interfaces.IRtCategorysupportLayer"
-        template="templates/rer_search.pt"
-        />
-
-  <browser:page
-        name="search"
-        permission="zope2.View"
-        class="rer.sitesearch.browser.rer_search.RERSearch"
-        for="*"
-        layer="rt.categorysupport.interfaces.IRtCategorysupportLayer"
-        template="templates/rer_search.pt" -->
-        />
-
 </configure>
