@@ -23,3 +23,21 @@ class TaxonomyInfo(BrowserView):
             return tax_dict
 
         return {}
+
+    def get_subjects(self):
+        if self.context:
+            _dict = {}
+            brains = api.content.find(context=self.context)
+            for brain in brains:
+                obj = brain.getObject()
+                if not obj.subject:
+                    continue
+                for el in obj.subject:
+                    if el in _dict.keys():
+                        _dict[el] += 1
+                    else:
+                        _dict[el] = 1
+
+            return _dict
+
+        return {}

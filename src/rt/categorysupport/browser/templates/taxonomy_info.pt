@@ -9,20 +9,38 @@
   <body>
     <metal:content-core fill-slot="content-core">
       <metal:content-core define-macro="content-core">
-        <div class="taxonomy_list" tal:define="taxonomies python:view.get_taxonomies();
-                                               url_quote  nocall:modules/Products.PythonScripts.standard/url_quote;">
-          <h3>Temi</h3>
-          <ul tal:condition="taxonomies">
-            <li tal:repeat="taxonomy python:taxonomies.keys();">
-              <span tal:define="tax_name python:taxonomy;
-                                tax_num python:taxonomies[tax_name];
-                                quotedCat python:url_quote(tax_name)">
-                <a href="" tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/@@search?taxonomies%3Alist=${quotedCat}">${tax_name}</a> (${tax_num})
-              </span>
-            </li>
-          </ul>
-          <span tal:condition="python:not taxonomies">Non sono presenti temi in questa sezione.</span>
-        </div>
+        <tal:taxonomies>
+          <div class="taxonomy_list" tal:define="taxonomies python:view.get_taxonomies();
+                                                 url_quote  nocall:modules/Products.PythonScripts.standard/url_quote;">
+            <h3>Temi</h3>
+            <ul tal:condition="taxonomies">
+              <li tal:repeat="taxonomy python:taxonomies.keys();">
+                <span tal:define="tax_name python:taxonomy;
+                                  tax_num python:taxonomies[tax_name];
+                                  quotedCat python:url_quote(tax_name)">
+                  <a href="" tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/@@search?taxonomies%3Alist=${quotedCat}&path=${context/absolute_url_path}">${tax_name}</a> (${tax_num})
+                </span>
+              </li>
+            </ul>
+            <span tal:condition="python:not taxonomies">Non sono presenti temi in questa sezione.</span>
+          </div>
+        </tal:taxonomies>
+        <tal:subjects>
+          <div class="taxonomy_list" tal:define="subjects python:view.get_subjects();
+                                                 url_quote  nocall:modules/Products.PythonScripts.standard/url_quote;">
+            <h3>Temi</h3>
+            <ul tal:condition="subjects">
+              <li tal:repeat="subject python:subjects.keys();">
+                <span tal:define="sub_name python:subject;
+                                  sub_num python:subjects[sub_name];
+                                  quotedCat python:url_quote(sub_name)">
+                  <a href="" tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/@@search?Subject%3Alist=${quotedCat}&path=${context/absolute_url_path}">${sub_name}</a> (${sub_num})
+                </span>
+              </li>
+            </ul>
+            <span tal:condition="python:not subjects">Non sono presenti categorie in questa sezione.</span>
+          </div>
+        </tal:subjects>
       </metal:content-core>
     </metal:content-core>
   </body>
