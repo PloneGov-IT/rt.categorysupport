@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 from Products.Five import BrowserView
+from plone.app.contenttypes.browser.folder import FolderView
 from plone import api
 
 
-class TaxonomyInfo(BrowserView):
+class TaxonomyInfo(FolderView):
     """  """
 
     def get_taxonomies(self):
@@ -41,3 +42,7 @@ class TaxonomyInfo(BrowserView):
             return _dict
 
         return {}
+
+
+    def batch(self):
+        return super(TaxonomyInfo, self).batch()
