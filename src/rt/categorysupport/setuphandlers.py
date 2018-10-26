@@ -9,6 +9,10 @@ from zope.component import queryUtility
 from zope.event import notify
 from zope.interface import implementer
 from zope.schema.interfaces import IVocabularyFactory
+from plone.registry.interfaces import IRegistry
+from Products.CMFCore.utils import getToolByName
+from rer.sitesearch.interfaces import IRERSiteSearchSettings
+from rer.sitesearch.custom_fields import IndexesValueField
 
 
 @implementer(INonInstallable)
@@ -19,6 +23,23 @@ class HiddenProfiles(object):
         return [
             'rt.categorysupport:uninstall',
         ]
+
+
+def setRegistyIndexes(context, indexes_list):
+    """
+    """
+    pc = getToolByName(context, 'portal_catalog')
+    catalog_indexes = pc.indexes()
+    new_items = []
+    for index in indexes_list:
+        index_id = index[0]
+        index_title = index[1]
+        if index_id in catalog_indexes:
+            new_value = IndexesValueField()
+            new_value.index = index_id
+            new_value.index_title = index_title
+            new_items.append(new_value)
+    return tuple(new_items)
 
 
 def post_install(context):
@@ -69,6 +90,16 @@ def post_install(context):
     if len(indexables) > 0:
         logger.info('Indexing new indexes {0}.'.format(', '.join(indexables)))
         catalog.manage_reindexIndex(ids=indexables)
+
+
+    # add taxonomies index to rer.siteserach oredering criteria
+    registry = queryUtility(IRegistry)
+    settings = registry.forInterface(IRERSiteSearchSettings, check=False)
+    
+    TAXONOMIES_INDEX = [('taxonomies', 'Temi'), ('Subject', 'Subject')]
+    indexes = setRegistyIndexes(context, TAXONOMIES_INDEX)
+    settings.available_indexes = indexes
+
 
 
 def uninstall(context):
