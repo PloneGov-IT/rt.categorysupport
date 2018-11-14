@@ -91,7 +91,6 @@ def post_install(context):
         logger.info('Indexing new indexes {0}.'.format(', '.join(indexables)))
         catalog.manage_reindexIndex(ids=indexables)
 
-
     # add taxonomies index to rer.siteserach oredering criteria
     registry = queryUtility(IRegistry)
     settings = registry.forInterface(IRERSiteSearchSettings, check=False)
@@ -99,7 +98,6 @@ def post_install(context):
     TAXONOMIES_INDEX = [('taxonomies', 'Temi'), ('Subject', 'Subject')]
     indexes = setRegistyIndexes(context, TAXONOMIES_INDEX)
     settings.available_indexes = indexes
-
 
 
 def uninstall(context):

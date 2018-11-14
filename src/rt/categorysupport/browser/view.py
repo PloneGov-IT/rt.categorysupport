@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from Products.Five import BrowserView
 from plone.app.contenttypes.browser.folder import FolderView
 from plone import api
 
@@ -42,7 +41,6 @@ class TaxonomyInfo(FolderView):
             return _dict
 
         return {}
-
 
     def batch(self):
         return super(TaxonomyInfo, self).batch()
