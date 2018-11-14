@@ -11,8 +11,8 @@ from zope.interface import implementer
 from zope.schema.interfaces import IVocabularyFactory
 from plone.registry.interfaces import IRegistry
 from Products.CMFCore.utils import getToolByName
-from rer.sitesearch.interfaces import IRERSiteSearchSettings
 from rer.sitesearch.custom_fields import IndexesValueField
+from rer.sitesearch.interfaces import IRERSiteSearchSettings
 
 
 @implementer(INonInstallable)
@@ -95,7 +95,7 @@ def post_install(context):
     # add taxonomies index to rer.siteserach oredering criteria
     registry = queryUtility(IRegistry)
     settings = registry.forInterface(IRERSiteSearchSettings, check=False)
-    
+
     TAXONOMIES_INDEX = [('taxonomies', 'Temi'), ('Subject', 'Subject')]
     indexes = setRegistyIndexes(context, TAXONOMIES_INDEX)
     settings.available_indexes = indexes
