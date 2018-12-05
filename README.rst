@@ -6,7 +6,9 @@
 rt.categorysupport
 ==================
 
-Tell me what your product does
+To add some taxonomies, go to the `taxonomy-settings` view and add them,
+one on each row.
+
 
 Features
 --------
