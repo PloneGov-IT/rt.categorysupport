@@ -20,7 +20,7 @@ msgstr "Aggiunge la possibilita di aggiungere tassonomie per i contenuti dexteri
 
 #: ./configure.zcml:30
 msgid "Installs the rt.categorysupport add-on."
-msgstr ""
+msgstr "Installa il plugin rt.categorysupport."
 
 #: ./browser/configure.zcml:50
 msgid "Taxonomies info view"
@@ -36,7 +36,7 @@ msgstr "Comportamento supporto temi"
 
 #: ./configure.zcml:39
 msgid "Uninstalls the rt.categorysupport add-on."
-msgstr ""
+msgstr "Disinstalla il plugin rt.categorysupport."
 
 #. Default: "Category list"
 #: ./browser/settings.py:10
@@ -46,7 +46,7 @@ msgstr "Lista di temi"
 #. Default: "Filed under:"
 #: ./browser/templates/keywords.pt:9
 msgid "label_filed_under"
-msgstr ""
+msgstr "Schedato come:"
 
 #. Default: "Categorization"
 #: ./behaviors/category.py:16
@@ -56,7 +56,7 @@ msgstr ""
 #. Default: "Taxonomies:"
 #: ./browser/templates/keywords.pt:24
 msgid "label_taxonomies_under"
-msgstr ""
+msgstr "Temi:"
 
 #: ./configure.zcml:30
 msgid "rt.categorysupport"
