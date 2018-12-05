@@ -7,7 +7,7 @@ rt.categorysupport
 ==================
 
 To add some taxonomies, go to the `taxonomy-settings` view and add them,
-one on each row.
+one by one on each row.
 
 
 Features
