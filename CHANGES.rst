@@ -7,7 +7,8 @@ Changelog
 
 - Added some italian translations.
   [arsenico13]
-
+- Fix path in search link.
+  [cekk]
 
 1.0a1 (2018-10-11)
 ------------------
