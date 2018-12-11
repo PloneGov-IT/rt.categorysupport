@@ -9,6 +9,8 @@ Changelog
   [arsenico13]
 - Fix path in search link.
   [cekk]
+- Some minor fixes to taxonomies view.
+  [eikichi18]
 
 1.0a1 (2018-10-11)
 ------------------
