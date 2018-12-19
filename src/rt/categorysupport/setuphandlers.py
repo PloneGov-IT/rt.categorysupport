@@ -2,6 +2,8 @@
 from plone import api
 from plone.dexterity.interfaces import IDexterityFTI
 from plone.dexterity.schema import SchemaInvalidatedEvent
+from plone.registry.interfaces import IRegistry
+from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.interfaces import INonInstallable
 from rt.categorysupport import logger
 from zope.component import getUtility
@@ -9,11 +11,8 @@ from zope.component import queryUtility
 from zope.event import notify
 from zope.interface import implementer
 from zope.schema.interfaces import IVocabularyFactory
-from plone.registry.interfaces import IRegistry
-from Products.CMFCore.utils import getToolByName
 
 try:
-    from rer.sitesearch.custom_fields import IndexesValueField
     from rer.sitesearch.interfaces import IRERSiteSearchSettings
 except Exception:
     pass
@@ -23,24 +22,7 @@ except Exception:
 class HiddenProfiles(object):
     def getNonInstallableProfiles(self):
         """Hide uninstall profile from site-creation and quickinstaller."""
-        return ["rt.categorysupport:uninstall"]
-
-
-def setRegistyIndexes(context, indexes_list):
-    """
-    """
-    pc = getToolByName(context, "portal_catalog")
-    catalog_indexes = pc.indexes()
-    new_items = []
-    for index in indexes_list:
-        index_id = index[0]
-        index_title = index[1]
-        if index_id in catalog_indexes:
-            new_value = IndexesValueField()
-            new_value.index = index_id
-            new_value.index_title = index_title
-            new_items.append(new_value)
-    return tuple(new_items)
+        return ['rt.categorysupport:uninstall']
 
 
 def post_install(context):
@@ -48,7 +30,7 @@ def post_install(context):
 
     # get all content type of site
     factory = getUtility(
-        IVocabularyFactory, "plone.app.vocabularies.PortalTypes"
+        IVocabularyFactory, 'plone.app.vocabularies.PortalTypes'
     )  # noqa
     vocabulary = factory(context)
     types = [x.value for x in vocabulary]
@@ -68,12 +50,12 @@ def post_install(context):
     portal = api.portal.get()
     setup_tool = portal.portal_setup
     setup_tool.runImportStepFromProfile(
-        "profile-rt.categorysupport:default", "catalog"
+        'profile-rt.categorysupport:default', 'catalog'
     )
-    catalog = api.portal.get_tool(name=u"portal_catalog")
+    catalog = api.portal.get_tool(name=u'portal_catalog')
     indexes = catalog.indexes()
 
-    wanted = [("taxonomies", "KeywordIndex", {"indexed_attrs": "taxonomies"})]
+    wanted = [('taxonomies', 'KeywordIndex', {'indexed_attrs': 'taxonomies'})]
 
     indexables = []
     for idx in wanted:
@@ -102,9 +84,10 @@ def post_install(context):
         registry = queryUtility(IRegistry)
         settings = registry.forInterface(IRERSiteSearchSettings, check=False)
 
-        TAXONOMIES_INDEX = [("taxonomies", "Temi"), ("Subject", "Subject")]
-        indexes = setRegistyIndexes(context, TAXONOMIES_INDEX)
-        settings.available_indexes = indexes
+        TAXONOMIES_INDEX = [{'index_title': 'Temi', 'index': 'taxonomies'}]
+        settings.available_indexes = (
+            settings.available_indexes + TAXONOMIES_INDEX
+        )
 
         # aggiungo il campo taxonomies a quelli visibili nella vista
         if "taxonomies" not in settings.indexes_order:
@@ -116,7 +99,7 @@ def uninstall(context):
 
     # get all content type of site
     factory = getUtility(
-        IVocabularyFactory, "plone.app.vocabularies.PortalTypes"
+        IVocabularyFactory, 'plone.app.vocabularies.PortalTypes'
     )  # noqa
     vocabulary = factory(context)
     types = [x.value for x in vocabulary]

@@ -5,7 +5,8 @@ Changelog
 1.0a3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Remove dependency to rer.sitesearch persistent fields.
+  [cekk]
 
 
 1.0a2 (2018-12-13)
