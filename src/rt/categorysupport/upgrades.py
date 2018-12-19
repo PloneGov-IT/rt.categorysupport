@@ -31,9 +31,10 @@ def add_taxonomies_to_indexes(context):
         registry = queryUtility(IRegistry)
         settings = registry.forInterface(IRERSiteSearchSettings, check=False)
 
-        TAXONOMIES_INDEX = [("taxonomies", "Temi"), ("Subject", "Subject")]
-        indexes = setRegistyIndexes(context, TAXONOMIES_INDEX)
-        settings.available_indexes = indexes
+        TAXONOMIES_INDEX = [{'index_title': 'Temi', 'index': 'taxonomies'}]
+        settings.available_indexes = (
+            settings.available_indexes + TAXONOMIES_INDEX
+        )
 
         # aggiungo il campo taxonomies a quelli visibili nella vista
         if "taxonomies" not in settings.indexes_order:
