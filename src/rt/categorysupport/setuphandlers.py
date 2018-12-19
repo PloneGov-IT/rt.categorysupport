@@ -88,17 +88,23 @@ def post_install(context):
         logger.info("Indexing new indexes {0}.".format(", ".join(indexables)))
         catalog.manage_reindexIndex(ids=indexables)
 
-    # add taxonomies index to rer.siteserach oredering criteria
-    registry = queryUtility(IRegistry)
-    settings = registry.forInterface(IRERSiteSearchSettings, check=False)
+    # check if rer.sitesearch was installed
+    qi = getToolByName(context, 'portal_quickinstaller')
+    prods = qi.listInstallableProducts(skipInstalled=False)
+    prods = [x['id'] for x in prods if x['status'] == 'installed']
 
-    TAXONOMIES_INDEX = [("taxonomies", "Temi"), ("Subject", "Subject")]
-    indexes = setRegistyIndexes(context, TAXONOMIES_INDEX)
-    settings.available_indexes = indexes
+    if 'rer.sitesearch' in prods:
+        # add taxonomies index to rer.siteserach oredering criteria
+        registry = queryUtility(IRegistry)
+        settings = registry.forInterface(IRERSiteSearchSettings, check=False)
 
-    # aggiungo il campo taxonomies a quelli visibili nella vista
-    if "taxonomies" not in settings.indexes_order:
-        settings.indexes_order += ("taxonomies",)
+        TAXONOMIES_INDEX = [("taxonomies", "Temi"), ("Subject", "Subject")]
+        indexes = setRegistyIndexes(context, TAXONOMIES_INDEX)
+        settings.available_indexes = indexes
+
+        # aggiungo il campo taxonomies a quelli visibili nella vista
+        if "taxonomies" not in settings.indexes_order:
+            settings.indexes_order += ("taxonomies",)
 
 
 def uninstall(context):
