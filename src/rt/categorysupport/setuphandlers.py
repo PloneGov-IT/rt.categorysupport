@@ -12,7 +12,11 @@ from zope.schema.interfaces import IVocabularyFactory
 from plone.registry.interfaces import IRegistry
 from Products.CMFCore.utils import getToolByName
 from rer.sitesearch.custom_fields import IndexesValueField
-from rer.sitesearch.interfaces import IRERSiteSearchSettings
+
+try:
+    from rer.sitesearch.interfaces import IRERSiteSearchSettings
+except Exception:
+    pass
 
 
 @implementer(INonInstallable)
