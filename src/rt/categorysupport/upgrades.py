@@ -3,7 +3,6 @@ from plone import api
 from plone.registry.interfaces import IRegistry
 from Products.CMFCore.utils import getToolByName
 from rt.categorysupport import logger
-from rt.categorysupport.setuphandlers import setRegistyIndexes
 from zope.component import queryUtility
 
 try:
