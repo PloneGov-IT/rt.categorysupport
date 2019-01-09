@@ -5,7 +5,8 @@ Changelog
 1.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Revert to old rer.sitesearch persistent fields.
+  [cekk]
 
 
 1.0.0 (2019-01-09)

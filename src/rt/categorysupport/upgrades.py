@@ -3,6 +3,7 @@ from plone import api
 from plone.registry.interfaces import IRegistry
 from Products.CMFCore.utils import getToolByName
 from rt.categorysupport import logger
+from rt.categorysupport.setuphandlers import setRegistyIndexes
 from zope.component import queryUtility
 
 try:
@@ -30,10 +31,9 @@ def add_taxonomies_to_indexes(context):
         registry = queryUtility(IRegistry)
         settings = registry.forInterface(IRERSiteSearchSettings, check=False)
 
-        TAXONOMIES_INDEX = [{'index_title': 'Temi', 'index': 'taxonomies'}]
-        settings.available_indexes = (
-            settings.available_indexes + TAXONOMIES_INDEX
-        )
+        TAXONOMIES_INDEX = [("taxonomies", "Temi"), ("Subject", "Subject")]
+        indexes = setRegistyIndexes(context, TAXONOMIES_INDEX)
+        settings.available_indexes = indexes
 
         # aggiungo il campo taxonomies a quelli visibili nella vista
         if "taxonomies" not in settings.indexes_order:
