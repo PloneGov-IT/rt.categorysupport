@@ -7,6 +7,8 @@ Changelog
 
 - Remove dependency to rer.sitesearch persistent fields.
   [cekk]
+- More italian translations changes (#16825)
+  [arsenico13]
 
 
 1.0a2 (2018-12-13)

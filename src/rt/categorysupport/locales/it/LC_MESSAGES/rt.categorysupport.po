@@ -69,7 +69,7 @@ msgstr ""
 #. Default: "Taxonomies"
 #: ./behaviors/category.py:21
 msgid "taxonomies"
-msgstr "Tassonomie"
+msgstr "Temi"
 
 #. Default: "Un campo aggiuntivo per la gestione di nuove parole chiave."
 #: ./behaviors/category.py:22
@@ -79,4 +79,4 @@ msgstr ""
 #. Default: "Taxonomy Settings"
 #: ./browser/settings.py:20
 msgid "taxonomy_settings"
-msgstr ""
+msgstr "Impostazioni Temi"
