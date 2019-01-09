@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0.1 (unreleased)
+1.0.1 (2019-01-09)
 ------------------
 
 - Revert to old rer.sitesearch persistent fields.
