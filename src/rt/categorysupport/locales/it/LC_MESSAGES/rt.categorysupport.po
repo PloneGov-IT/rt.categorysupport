@@ -46,7 +46,7 @@ msgstr "Lista di temi"
 #. Default: "Filed under:"
 #: ./browser/templates/keywords.pt:9
 msgid "label_filed_under"
-msgstr "Schedato come:"
+msgstr "Temi:"
 
 #. Default: "Categorization"
 #: ./behaviors/category.py:16
