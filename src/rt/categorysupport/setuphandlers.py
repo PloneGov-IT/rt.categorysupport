@@ -93,11 +93,11 @@ def post_install(context):
         catalog.manage_reindexIndex(ids=indexables)
 
     # check if rer.sitesearch was installed
-    qi = getToolByName(context, 'portal_quickinstaller')
+    qi = getToolByName(context, "portal_quickinstaller")
     prods = qi.listInstallableProducts(skipInstalled=False)
-    prods = [x['id'] for x in prods if x['status'] == 'installed']
+    prods = [x["id"] for x in prods if x["status"] == "installed"]
 
-    if 'rer.sitesearch' in prods:
+    if "rer.sitesearch" in prods:
         # add taxonomies index to rer.siteserach oredering criteria
         registry = queryUtility(IRegistry)
         settings = registry.forInterface(IRERSiteSearchSettings, check=False)
@@ -127,7 +127,8 @@ def uninstall(context):
         if not fti:
             continue
         behaviors = [x for x in fti.behaviors]
-        behaviors.remove(u"rt.categorysupport.behaviors.category.ICategory")
+        if "rt.categorysupport.behaviors.category.ICategory" in behaviors:
+            behaviors.remove("rt.categorysupport.behaviors.category.ICategory")
         fti.behaviors = tuple(behaviors)
         # invalidate schema cache
         notify(SchemaInvalidatedEvent(type))
