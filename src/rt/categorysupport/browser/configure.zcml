@@ -22,7 +22,7 @@
   <!-- view for control panel -->
   <browser:page
       for="Products.CMFCore.interfaces.ISiteRoot"
-      name="taxonomy-settings"
+      name="category-settings"
       permission="cmf.ManagePortal"
       class=".settings.TaxonomySettings"
       layer="rt.categorysupport.interfaces.IRtCategorysupportLayer"
