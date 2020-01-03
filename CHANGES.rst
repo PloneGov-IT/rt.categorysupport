@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0.2 (unreleased)
+1.1.0 (2020-01-03)
 ------------------
 
 - Do not wake up objects in taxonomies view.
