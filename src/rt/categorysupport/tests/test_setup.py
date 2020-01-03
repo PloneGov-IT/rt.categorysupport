@@ -1,11 +1,17 @@
 # -*- coding: utf-8 -*-
 """Setup tests for this package."""
+from rt.categorysupport.testing import RT_CATEGORYSUPPORT_INTEGRATION_TESTING  # noqa: E501
 from plone import api
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
-from rt.categorysupport.testing import RT_CATEGORYSUPPORT_INTEGRATION_TESTING  # noqa
 
 import unittest
+
+
+try:
+    from Products.CMFPlone.utils import get_installer
+except ImportError:
+    get_installer = None
 
 
 class TestSetup(unittest.TestCase):
@@ -16,7 +22,10 @@ class TestSetup(unittest.TestCase):
     def setUp(self):
         """Custom shared utility setup for tests."""
         self.portal = self.layer['portal']
-        self.installer = api.portal.get_tool('portal_quickinstaller')
+        if get_installer:
+            self.installer = get_installer(self.portal, self.layer['request'])
+        else:
+            self.installer = api.portal.get_tool('portal_quickinstaller')
 
     def test_product_installed(self):
         """Test if rt.categorysupport is installed."""
@@ -39,8 +48,11 @@ class TestUninstall(unittest.TestCase):
 
     def setUp(self):
         self.portal = self.layer['portal']
-        self.installer = api.portal.get_tool('portal_quickinstaller')
-        roles_before = api.user.get(userid=TEST_USER_ID).getRoles()
+        if get_installer:
+            self.installer = get_installer(self.portal, self.layer['request'])
+        else:
+            self.installer = api.portal.get_tool('portal_quickinstaller')
+        roles_before = api.user.get_roles(TEST_USER_ID)
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
         self.installer.uninstallProducts(['rt.categorysupport'])
         setRoles(self.portal, TEST_USER_ID, roles_before)
@@ -56,5 +68,5 @@ class TestUninstall(unittest.TestCase):
             IRtCategorysupportLayer
         from plone.browserlayer import utils
         self.assertNotIn(
-           IRtCategorysupportLayer,
-           utils.registered_layers())
+            IRtCategorysupportLayer,
+            utils.registered_layers())
