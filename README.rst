@@ -6,6 +6,9 @@
 rt.categorysupport
 ==================
 
+.. image:: https://travis-ci.org/PloneGov-IT/rt.categorysupport.svg?branch=master
+    :target: https://travis-ci.org/PloneGov-IT/rt.categorysupport
+
 Plugin that add a new "Taxonomies" field to content-types.
 
 
