@@ -29,13 +29,13 @@ RT_CATEGORYSUPPORT_FIXTURE = RtCategorysupportLayer()
 
 RT_CATEGORYSUPPORT_INTEGRATION_TESTING = IntegrationTesting(
     bases=(RT_CATEGORYSUPPORT_FIXTURE,),
-    name='RtCategorysupportLayer:IntegrationTesting'
+    name='RtCategorysupportLayer:IntegrationTesting',
 )
 
 
 RT_CATEGORYSUPPORT_FUNCTIONAL_TESTING = FunctionalTesting(
     bases=(RT_CATEGORYSUPPORT_FIXTURE,),
-    name='RtCategorysupportLayer:FunctionalTesting'
+    name='RtCategorysupportLayer:FunctionalTesting',
 )
 
 
@@ -43,7 +43,7 @@ RT_CATEGORYSUPPORT_ACCEPTANCE_TESTING = FunctionalTesting(
     bases=(
         RT_CATEGORYSUPPORT_FIXTURE,
         REMOTE_LIBRARY_BUNDLE_FIXTURE,
-        z2.ZSERVER_FIXTURE
+        z2.ZSERVER_FIXTURE,
     ),
-    name='RtCategorysupportLayer:AcceptanceTesting'
+    name='RtCategorysupportLayer:AcceptanceTesting',
 )

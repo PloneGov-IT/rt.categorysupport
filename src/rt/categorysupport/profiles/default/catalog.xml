@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <object name="portal_catalog">
-    <index name="taxonomies" meta_type="FieldIndex">
+    <index name="taxonomies" meta_type="KeywordIndex">
         <indexed_attr value="taxonomies"/>
     </index>
     <column value="taxonomies"/>
