@@ -5,7 +5,8 @@ Changelog
 1.0.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Do not wake up objects in taxonomies view.
+  [cekk] 
 
 
 1.0.1 (2019-01-09)
