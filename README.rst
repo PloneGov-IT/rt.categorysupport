@@ -6,27 +6,29 @@
 rt.categorysupport
 ==================
 
-To add some taxonomies, go to the `taxonomy-settings` view and add them,
-one by one on each row.
+Plugin that add a new "Taxonomies" field to content-types.
 
 
 Features
 --------
 
-- Can be bullet points
+- Fixed list of available taxonomies
+- View for folder contents to show a list of contained objects' taxonomies
 
+
+Available taxonomies
+--------------------
+
+There is a control panel (@@taxonomy-settings) where you can set available taxonomies that users can choose.
 
 Examples
 --------
 
 This add-on can be seen in action at the following sites:
-- Is there a page on the internet where everybody can see the features?
 
+- `Emilia-Romagna Sociale`__
 
-Documentation
--------------
-
-Full documentation for end users can be found in the "docs" folder, and is also available online at http://docs.plone.org/foo/bar
+__ https://sociale.regione.emilia-romagna.it/documentazione
 
 
 Translations
@@ -34,7 +36,7 @@ Translations
 
 This product has been translated into
 
-- Klingon (thanks, K'Plai)
+- Italian
 
 
 Installation
@@ -56,16 +58,8 @@ and then running ``bin/buildout``
 Contribute
 ----------
 
-- Issue Tracker: https://github.com/collective/rt.categorysupport/issues
-- Source Code: https://github.com/collective/rt.categorysupport
-- Documentation: https://docs.plone.org/foo/bar
-
-
-Support
--------
-
-If you are having issues, please let us know.
-We have a mailing list located at: project@example.com
+- Issue Tracker: https://github.com/PloneGov-IT/rt.categorysupport/issues
+- Source Code: https://github.com/PloneGov-IT/rt.categorysupport
 
 
 License
